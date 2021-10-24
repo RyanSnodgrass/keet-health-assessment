@@ -31,12 +31,10 @@ module TimeService
       end
 
       def minutes_since_midnight(sub_time)
-        total_minutes = 0
         time_array = sub_time.split(':')
         hours = time_array[0].to_i
         minutes = time_array[1].to_i
-        total_minutes += (hours * 60)
-        total_minutes += minutes
+        (hours * 60) + minutes
       end
     end
   end
