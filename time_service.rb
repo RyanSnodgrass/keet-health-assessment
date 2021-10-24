@@ -11,7 +11,11 @@ module TimeService
 
       def add_minutes(time_string, minutes)
         sub_time = knock_off_ampm(time_string)
-        sub_time
+        minutes = minutes_since_midnight(sub_time)
+      end
+
+      def compute_addition(first, second)
+        first + second
       end
 
       def knock_off_ampm(time_string)

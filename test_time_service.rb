@@ -38,4 +38,21 @@ class TestTimeService < Minitest::Test
     result = @t.minutes_since_midnight('9:13')
     assert_equal expectation, result
   end
+
+  # It seems silly to test such a simple thing. But I want to keep the #add_minutes
+  # method to still return a string. This also makes testing much easier.
+  def test_that_a_computer_can_add_numbers
+    expectation = 3
+    result = @t.compute_addition(1, 2)
+    assert_equal expectation, result
+  end
+
+  # save for later. no time.
+  # def test_handle_12_hour_time_window_for_total_minutes
+  #   # 12 * 60 = 720
+  #   # 3 * 60 = 180
+  #   # 720 + 180 + 45 = 945
+  #   expectation = 945
+  #   result = @t.minutes_since_midnight('9:13', )
+  # end
 end
