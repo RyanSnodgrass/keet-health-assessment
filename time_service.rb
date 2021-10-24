@@ -14,6 +14,11 @@ module TimeService
         minutes = minutes_since_midnight(sub_time)
       end
 
+      def convert_to_human_time(minutes)
+        hours, minutes = minutes.divmod(60)
+        "#{hours}:#{minutes}"
+      end
+
       def compute_addition(first, second)
         first + second
       end

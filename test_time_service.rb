@@ -47,6 +47,13 @@ class TestTimeService < Minitest::Test
     assert_equal expectation, result
   end
 
+  # this will also need to be refactored later to handle second 12 hour PM
+  def test_converts_total_minutes_back_to_standard_time
+    expectation = '9:13'
+    result = @t.convert_to_human_time(553)
+    assert_equal expectation, result
+  end
+
   # save for later. no time.
   # def test_handle_12_hour_time_window_for_total_minutes
   #   # 12 * 60 = 720
