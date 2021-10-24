@@ -10,11 +10,21 @@ module TimeService
       end
 
       def add_minutes(time_string, minutes)
-        time_string = knock_off_ampm(time_string)
+        sub_time = knock_off_ampm(time_string)
+        sub_time
       end
 
       def knock_off_ampm(time_string)
         time_string.gsub(/ [apAP][mM]$/, '')
+      end
+
+      def minutes_since_midnight(sub_time)
+        total_minutes = 0
+        time_array = sub_time.split(':')
+        hours = time_array[0].to_i
+        minutes = time_array[1].to_i
+        total_minutes += (hours * 60)
+        total_minutes += minutes
       end
     end
   end

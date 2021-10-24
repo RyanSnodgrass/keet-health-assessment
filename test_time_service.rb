@@ -26,6 +26,16 @@ class TestTimeService < Minitest::Test
   def test_case_insensitive_knockoff
     expectation = '9:13'
     result = @t.knock_off_ampm('9:13 pm')
-    assert_equal expectation,result
+    assert_equal expectation, result
+  end
+
+  # I've got a neat idea. turn the time into total minutes. will need to be tested
+  # later that it can handle second 12 hour PM
+  def test_parses_total_minutes
+    # 9 * 60 = 540
+    # 540 + 13 = 553
+    expectation = 553
+    result = @t.minutes_since_midnight('9:13')
+    assert_equal expectation, result
   end
 end
