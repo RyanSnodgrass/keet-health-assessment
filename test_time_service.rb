@@ -54,6 +54,12 @@ class TestTimeService < Minitest::Test
     assert_equal expectation, result
   end
 
+  def test_tie_it_together
+    expectation = '9:23 AM'
+    result = @t.add_minutes('9:13 AM', 10)
+    assert_equal expectation, result
+  end
+
   # save for later. no time.
   # def test_handle_12_hour_time_window_for_total_minutes
   #   # 12 * 60 = 720

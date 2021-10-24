@@ -11,7 +11,10 @@ module TimeService
 
       def add_minutes(time_string, minutes)
         sub_time = knock_off_ampm(time_string)
-        minutes = minutes_since_midnight(sub_time)
+        current_time_in_minutes = minutes_since_midnight(sub_time)
+        new_minutes = compute_addition(current_time_in_minutes, minutes)
+        human_time = convert_to_human_time(new_minutes)
+        "#{human_time} AM"
       end
 
       def convert_to_human_time(minutes)
