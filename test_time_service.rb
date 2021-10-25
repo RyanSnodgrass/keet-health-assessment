@@ -60,6 +60,12 @@ class TestTimeService < Minitest::Test
     assert_equal expectation, result
   end
 
+  def test_that_it_handles_upping_the_hour
+    expectation = '5:15 AM'
+    result = @t.add_minutes('4:45 AM', 30)
+    assert_equal expectation, result
+  end
+
   # save for later. no time.
   # def test_handle_12_hour_time_window_for_total_minutes
   #   # 12 * 60 = 720
